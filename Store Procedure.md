@@ -1,38 +1,7 @@
-Index
-Views
-TEMP Table
-Common table expression CTE 
-Duplicate table
-Stored Procedure - CREATE PROCEDURE
-No count on , no count off
-Triggers
+# Store Procedure
+Stored Procedure - CREATE PROCEDURE - What, Why Where
 
 
-Partition ing 
-Sharding
-Replication 
-Transaction
-Hashing (Consistent Hashing)
-CAP theoram
-ACID Properties 
-Normalisation
-DataBase Modeling
-Schema
-micro partition, 
-auto cluster, 
-time travel 
-Isolation Level 
-
-How to decide which database is suiltable for which application
-Backup - create table emp as select * from employee 
-
-DDL
-DML
-DCl
-TCL
-DQL
-
-## Store Procedure
 
 CREATE PROCEDURE Temp_Employee
 @JobTitle nvarchar(100)

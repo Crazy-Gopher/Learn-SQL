@@ -29,3 +29,16 @@ JOIN EmployeeSalary ES
 ON ED.EmployeeID = ES.EmployeeID
 
 
+## PSQL - 
+Variable
+built in variables @@identity
+
+Flow control - if else, while, CASE
+Built in functions
+String - TRIM, RTRIM, LTRIM, REPLACE, SUBSTRING, LOWER, UPPER
+math
+datetime
+
+CAST, Convert
+
+PARTITION BY

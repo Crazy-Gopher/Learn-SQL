@@ -1,9 +1,26 @@
 # DDL (define database schema in DBMS)
+Create, 
+alter, 
+drop,
+delete, 
+truncate
+
+
+# Schema
+
+
+# Backup
+Backup - create table emp as select * from employee 
 
 ## CREATE
+Create - 
+create table employee(emp_id varchar(10), emp_name varchar(10),  sal number(10), phn_no varchar(10),doj date);
+
+Create table If Not Exists Employee (id int, salary int)
+
 
 ### CREATE database
-
+USE databse_name;
 ### CREATE table
 
 ## Constraints
@@ -41,7 +58,11 @@ Adding Constraints –
 Change data type of a column
 alter table customer
 alter column phonenumber varchar(10)
-
+Backup - create table emp as select * from employee  
+Alter – 
+1.	Add - alter table emp add (dor  date)
+2.	Modify - alter table emp modify (sal number(12))
+3.	Delete – alter table emp  drop column dor
 
 ## DROP
 Drop – drop table emp1 (all row + schema)

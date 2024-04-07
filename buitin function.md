@@ -50,3 +50,18 @@ SELECT CONVERT(date,'2017-08-25 00:00:00.000')
 
 # Window Function
 ROW_NUMBER, RANK, DENSE_RANK, NTILE
+partition
+
+## Nth Highest salary https://www.youtube.com/watch?v=fh4yBn0oTaM&ab_channel=GateSmashers
+SELECT * 
+FROM Employee Emp1
+WHERE (N-1) = ( 
+SELECT COUNT(DISTINCT(Emp2.Salary))
+FROM Employee Emp2
+WHERE Emp2.Salary > Emp1.Salary)
+
+###  Using DENSE_RANK
+SELECT * FROM(
+SELECT emp_name, salary, DENSE_RANK() 
+over(ORDER BY salary DESC) AS ranking FROM employee) AS k
+WHERE ranking=3;

@@ -1,0 +1,1 @@
+Common table expression CTE 

@@ -13,6 +13,8 @@ inline query
 Sub queries
 Inner Queries
 
+views
+
 1. Subquery in select
 2. Subquery with partition by
 3. Subquery in from
