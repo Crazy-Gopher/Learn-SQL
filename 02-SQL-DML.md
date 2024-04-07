@@ -1,5 +1,7 @@
 # DML (manipulate data present in the DB)
-
+INSERT
+DELETE
+UPDATE
 
 ## Update
 update customer set phonenumber='1234545346' where

@@ -1,4 +1,6 @@
 # DQL (retrieve data from the DB using SQL queries)
+SELECT
+
 
 ## SQL Queries
 https://www.scaler.com/topics/sql/types-of-subqueries-in-sql/Single-row 
@@ -13,7 +15,6 @@ inline query
 Sub queries
 Inner Queries
 
-views
 
 1. Subquery in select
 2. Subquery with partition by

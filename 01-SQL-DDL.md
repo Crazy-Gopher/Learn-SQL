@@ -1,9 +1,9 @@
 # DDL (define database schema in DBMS)
-Create, 
-alter, 
-drop,
-delete, 
-truncate
+CREATE, 
+ALTER, 
+DROP, 
+TRUNCATE,
+RENAME
 
 
 # Schema
