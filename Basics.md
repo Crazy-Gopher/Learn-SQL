@@ -26,3 +26,7 @@ select distinct * from employee
 
 Second highest salary -SELECT MAX(Salary) FROM Employees
 WHERE Salary NOT IN (SELECT MAX(Salary) FROM Employees )
+
+
+-- Incremental data
+-- new data will always be the latest data, like click data

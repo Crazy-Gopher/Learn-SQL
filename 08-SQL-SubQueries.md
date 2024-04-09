@@ -1,19 +1,29 @@
-subquery, 
-multiple row subquery, 
-multiple column subquery, 
-correlated subquery, 
-nested subquery. 
-Corelated sub queries
-inline query
-Sub queries
+Corelated and Non-Corelated Sub Quries
+
+1. Single row subquery(Single column), 
+2. Multiple row subquery(Single column), 
+3. Multiple column subquery(Single or Multiple row), 
+4. Corelated sub queries
+5. nested subquery. 
+
+
+Inline View
+```
+SELECT emp.first_name, emp.last_name
+FROM (
+    SELECT first_name, last_name
+    FROM employee
+    WHERE joined_date > '2024-04-01'
+) AS emp;
+```
 Inner Queries
-correlated nested queries
+
 
 1. Subquery in select
 2. Subquery with partition by
 3. Subquery in from
 4. Sub query in where
-5. Subquery in where
+
 
 ANY, ALL, EXISTS
 
