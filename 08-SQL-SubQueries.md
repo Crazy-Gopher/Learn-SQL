@@ -7,7 +7,7 @@ Corelated and Non-Corelated Sub Quries
 5. nested subquery. 
 
 
-Inline View
+Inline View/ Inline Query
 ```
 SELECT emp.first_name, emp.last_name
 FROM (

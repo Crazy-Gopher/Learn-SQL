@@ -3,13 +3,13 @@ AND
 OR
 NOT
 LIMIT
-IN
+IN, NOT IN
 BETWEEN
 LIKE, iLIKE - underscore(_), percentage(%)
 IS NULL, IS NOT NULL
 
 
-5.	where clause - select * from employee where emp_id='1001'
+5.	WHERE clause - select * from employee where emp_id='1001'
 or 
 select * from employee where sal>30001
 or

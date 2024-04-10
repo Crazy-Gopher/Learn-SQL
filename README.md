@@ -40,9 +40,16 @@ Duplicate table (How to remove duplicate data)
 (Explain)Compile instead of executing if you just want to see if the sql is currect or not and you don't need to see the data
 Explain by json in each query 
 
+
+## PostgreSQL
 docker run -p 5432:5432 --name postgres_local -e POSTGRES_PASSWORD=postgres -d postgres 
 docker exec -it postgres_local bash 
 psql "host=127.0.0.1 port=5432 user=postgres dbname=postgres" 
+psql -h host -p port -d db_name -U username
+
 CREATE DATABASE learnsql;
 \l - list databases
-\c learnsql
+\c <db_name>
+\dt: list all the tables of current database
+\x - extended display on or off
+\q - quit

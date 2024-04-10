@@ -33,3 +33,9 @@ SQL Notes:
  ROUND
  CEIL
  FULL JOIN search_conversions conversions USING ()
+
+ WITHIN GROUP (ORDER BY)
+
+ CREATE TEMP TABLE abcd AS select * from cde
+
+OLAP and OLTP
