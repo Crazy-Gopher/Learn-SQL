@@ -55,23 +55,29 @@ FROM employee;
 
 ## SELECT
 1. ALL Column*
+
 `SELECT * FROM employee;`
 
 2. Required Colummns
+
 `SELECT id, email, salary FROM employee;`
 
 3. Unique Values
+
 `SELECT DISTINCT salary FROM employee;`
 
 `SELECT DISTINCT first_name, department_id FROM employee;`
 
 4. Select current_date, new_value
+
 `SELECT 'kapil' || ' ' || 'Jain' AS fullname, 50000 as salary;`
+
   fullname  | salary
 ------------+--------
  kapil Jain |  50000
 
 `SELECT CURRENT_DATE;`
+
  current_date
 --------------
  2024-04-11
