@@ -91,3 +91,10 @@ sql
 Copy code
 SELECT CASE WHEN divisor_column = 0 THEN NULL ELSE dividend_column / divisor_column END FROM table_name;
 It's important to carefully consider how NULL values should be handled in arithmetic operations based on the specific requirements of your query. Improper handling of NULL values can lead to unexpected results or errors in your SQL statements.
+
+
+select (NULL*(11 - 10)/100) AS diff_impressions;
+
+NULL != NULL False
+NULL == NULL False
+any operation with null will return NULL always.

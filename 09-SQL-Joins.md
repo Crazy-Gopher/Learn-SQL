@@ -64,3 +64,6 @@ NATURAL JOIN table2;
 
 
 In summary, while both INNER JOIN and NATURAL JOIN are used to combine data from multiple tables, INNER JOIN provides more control over the join condition and is generally considered safer and more explicit, whereas NATURAL JOIN automatically matches columns based on their names, which can be convenient but may lead to unexpected results if the column names are not carefully managed.
+
+-- UPDATE Join, DELETE Join (Postgres)
+-- FULL JOIN employee convempersions USING ()

@@ -1,7 +1,9 @@
 # DML (manipulate data present in the DB)
-INSERT
+INSERT - Single rows, multiple rows
 DELETE
 UPDATE
+
+
 
 ## Update
 update customer set phonenumber='1234545346' where
@@ -15,7 +17,7 @@ customerid=2
 
 
 
-               Alter table emp  add constraint emp_id_pk primary key(emp_id)
+               
 
 ## Insert
 1.	insert into employee(emp_id , emp_name,  sal , phn_no ,doj) values('1001','kapil',30000,'8871337193','29-nov-1993')
@@ -33,6 +35,15 @@ insert into customer values
 3.	insert into manger 
 
 
+# SELECT INTO
+```
+SELECT column1, column2, ...
+INTO new_table_name
+FROM source_table_name
+[WHERE condition];
+```
+
+
 # Save table to another table
 select *  1 into table 2 from table
 
@@ -46,10 +57,18 @@ delete from emp1 where sal=32000
 2. for all row
 delete from emp1 
 
-Rename – rename  emp to emp1 
+
 Delete – delete from emp1 where sal=32000 for only specific row or delete from emp1 for all row
-Drop – drop table emp1 (all row + schema)
-Truncate – truncate table employee (all record without schema)
+
+DELETE FROM employee
+WHERE 
+    (firstname, lastname, salary) 
+IN 
+    (
+        select firstname, lastname, salary 
+        FROM employee
+    );
+
 
 # Save table to another table
 --into file_name: save result in another table (BASE TABLE)

@@ -1,7 +1,4 @@
-CASE
-COALESCE
-NULLIF
-CAST
+SUM(CASE WHEN diff_clicks >= 30 AND diff_clicks < 40 THEN 1 ELSE 0 END)            AS "diff_clicks(50-100)"
 
 ```
 SELECT

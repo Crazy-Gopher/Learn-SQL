@@ -3,6 +3,7 @@ Add condition to filter the data.
 
 `SELECT * FROM employee WHERE salary = 50000;`
 
+WHERE 1 = 1 ??
 
 ## Operators
 1. Comparision operator (<, >, <=, >=, <>, !=, =), NOT (<, >, <=, >=, <>, !=, =)

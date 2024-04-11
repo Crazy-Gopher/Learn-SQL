@@ -6,7 +6,7 @@ Stored Procedure - CREATE PROCEDURE - What, Why Where
 CREATE PROCEDURE Temp_Employee
 @JobTitle nvarchar(100)
 AS
-DROP TABLE IF EXISTS #temp_employee
+Drop TABLE #temp_employee
 Create table #temp_employee (
 JobTitle varchar(100),
 EmployeesPerJob int ,

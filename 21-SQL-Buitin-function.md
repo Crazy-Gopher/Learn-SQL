@@ -6,7 +6,34 @@ The COALESCE function evaluates arguments from left to right until it finds the 
 The COALESCE function provides the same functionality as NVL or IFNULL function provided by SQL-standard. MySQL has IFNULL function, while Oracle provides NVL function.
 
 
+CASE
+COALESCE
+NULLIF
+NVL
+GREATEST
+CAST
+ABS
+SUM, MAX, MIN, AVG, COUNT
+TO_DATE('2023-06-20', 'YYYY-MM-DD')
 TO_CHAR
+
+
+ROUND
+CEIL
+
+event_date > current_date - interval '30' day
+NOW()
+SELECT DATEADD(day, 3, '2024-04-11');
+REPLACE
+
+SELECT REPLACE(description, 'blue', 'green') AS updated_description
+FROM products;
+
+
+SELECT student_id, LISTAGG(subject, ', ') WITHIN GROUP (ORDER BY subject) AS subject_list
+FROM students
+GROUP BY student_id;
+
 # Built in functions
 
 ## String - TRIM, RTRIM, LTRIM, REPLACE, SUBSTRING, LOWER, UPPER

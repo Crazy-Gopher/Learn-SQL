@@ -1,7 +1,6 @@
-# Learn-SQL
 # Types of Databases
 1. SQL
-2. Nosql (ALl database types)
+2. Nosql (all database types)
 understanding popular databases like Mysql, Mongodb and Cassandra.
 
 # Storage types: 
@@ -42,6 +41,9 @@ Explain by json in each query 
 
 -- Incremental data
 -- new data will always be the latest data, like click data
+OLAP and OLTP
+-- Upsert, Merge (Snowflake, Postgres)
+
 
 
 ## Setup PostgreSQL

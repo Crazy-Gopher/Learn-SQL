@@ -29,12 +29,19 @@ Inner Queries
 
 IF EXISTS
 IF NOT EXISTS
+Create table If Not Exists Employee (id int, salary int)
+Drop TABLE IF EXISTS Employee
 
 Subqueries are queries that are nested inside another SQL query. They help us target specific rows to perform various operations in SQL. They are used to SELECT, UPDATE, INSERT and DELETE records in SQL. There are different types of SQL subquery, like Single-row subquery, multiple row subquery, multiple column subquery, correlated subquery, and nested subquery. Each type performs different roles, and their result is used depending on the user's requirement. 
 
+
+Second highest salary -SELECT MAX(Salary) FROM Employees
+WHERE Salary NOT IN (SELECT MAX(Salary) FROM Employees )
+
 ## SQL Sub Queries
 https://www.scaler.com/topics/sql/types-of-subqueries-in-sql/Single-row 
-
+https://www.geeksforgeeks.org/difference-between-nested-subquery-correlated-subquery-and-join-operation/?ref=rp
+https://www.geeksforgeeks.org/sql-correlated-subqueries/
 
 ```
 -- Highest Salary of Each Department, Employee Name, Department Name
