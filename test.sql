@@ -29,6 +29,8 @@ INSERT INTO department (department_name) VALUES('HR'),('ADMIN'),('ES'),('SECURIT
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES ('John@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW());
 
+INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
+VALUES ('Sarah1@example.com', '2024-04-07', 'Sarah', 'Doe', 50000, 1, NOW());
 
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES 

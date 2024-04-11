@@ -6,6 +6,7 @@ The COALESCE function evaluates arguments from left to right until it finds the 
 The COALESCE function provides the same functionality as NVL or IFNULL function provided by SQL-standard. MySQL has IFNULL function, while Oracle provides NVL function.
 
 
+TO_CHAR
 # Built in functions
 
 ## String - TRIM, RTRIM, LTRIM, REPLACE, SUBSTRING, LOWER, UPPER

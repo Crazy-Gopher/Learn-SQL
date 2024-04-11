@@ -41,15 +41,15 @@ Duplicate table (How to remove duplicate data)
 Explain by json in each query 
 
 
-## PostgreSQL
+## Setup PostgreSQL
 docker run -p 5432:5432 --name postgres_local -e POSTGRES_PASSWORD=postgres -d postgres 
 docker exec -it postgres_local bash 
 psql "host=127.0.0.1 port=5432 user=postgres dbname=postgres" 
-psql -h host -p port -d db_name -U username
+psql -h 127.0.0.1 -p 5432 -d postgres -U postgres
 
 CREATE DATABASE learnsql;
 \l - list databases
 \c <db_name>
-\dt: list all the tables of current database
+\dt - list all the tables of current database
 \x - extended display on or off
 \q - quit
