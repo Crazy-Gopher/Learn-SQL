@@ -132,6 +132,30 @@ FROM employee;
 
 ## Alias
 
-cmpgn.status as "CA_STATUS"
+status as "CA_STATUS"
+
+status "CA_STATUS"
+
+salary + 3000 AS NewSalary
 
 ## LIMIT/OFFSET
+
+## ORDER BY
+
+Order by – (Sorting)  select * from  employee order by doj  desc
+
+select * from database_name.schema.table_name
+
+--sort result (by default is ascending)
+select customerfirstname, customerlastname from customer
+order by customerlastname desc
+
+select customerfirstname, customerlastname from customer
+order by 4, 2, 3 desc -- Order By Based on column no. without typing column 
+name
+
+## Literals in SQL
+'kapil'
+123
+true, t
+null

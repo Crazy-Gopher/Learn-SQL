@@ -12,10 +12,7 @@ customerid=2
        1.    update    manager     set phn_no='9876543210'    where emp_id='1005'
        2.    update manager    set phn_no= (select phn_no from employee where sal=30000)
          where emp_id=(select emp_id from employee where sal=30000)
-Order by – (Sorting)  select * from  employee order by doj  desc
-Group by - select sum(sal) ,emp_name from employee group by emp_name
-Aggrigate Function -    sum,max,min,avg,count
-                                        select count(emp_id) from employee
+
 
 
                Alter table emp  add constraint emp_id_pk primary key(emp_id)

@@ -1,60 +1,63 @@
-DROP TABLE IF EXISTS employee;
-DROP TABLE IF EXISTS department;
-
-CREATE TABLE IF NOT EXISTS employee(
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(30) UNIQUE NOT NULL,
-    joined_date DATE NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50),
-    salary NUMERIC NOT NULL CHECK(salary > 0), -- employee_salary_check
-    is_active BOOLEAN DEFAULT TRUE,
-    create_ts TIMESTAMP,
-    department_id INTEGER,
-    CONSTRAINT fk_dpt
-    FOREIGN KEY(department_id) 
-    REFERENCES department(id)
-);
+CREATE DATABASE employeetracker;
 
 CREATE TABLE IF NOT EXISTS department(
     id SERIAL PRIMARY KEY,
     department_name VARCHAR(50)
 );
 
+CREATE TABLE IF NOT EXISTS employee(
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    joined_date DATE NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30),
+    salary NUMERIC NOT NULL CHECK(salary > 0),
+    is_active BOOLEAN DEFAULT TRUE,
+    create_ts TIMESTAMP,
+    department_id INTEGER,
+    manager_id INTEGER,
+    CONSTRAINT fk_dpt
+    FOREIGN KEY(department_id) 
+    REFERENCES department(id)
+);
+
+-- Valid
 INSERT INTO department (department_name) VALUES('IT');
 INSERT INTO department (department_name) VALUES('HR'),('ADMIN'),('ES'),('SECURITY');
 
 
 -- Valid
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
-VALUES ('John@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW());
+INSERT INTO employee (email, joined_date, first_name, last_name, salary, is_active, create_ts, department_id, manager_id)
+VALUES ('KapilJain@example.com', '2024-04-01', 'Kapil', 'Jain', 50000, true, NOW(), 3, null);
 
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
-VALUES ('Sarah1@example.com', '2024-04-07', 'Sarah', 'Doe', 50000, 1, NOW());
-
-INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
-VALUES ('KAPIL@example.com', '2024-04-07', 'Kapil', 50000, 1, NOW());
-INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
-VALUES ('Vishant@example.com', '2024-04-07', 'Vishant', 50000, 1, NOW());
-
-INSERT INTO employee (email, joined_date, first_name, salary, department_id,create_ts)
-VALUES ('kayu1@example.com', '2022-03-28', 'kayu', 50000, 1, NOW());
-INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
-VALUES ('kayu2@example.com', '2022-03-28', 'Kayu', 50000, 1, NOW());
-
-
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
+INSERT INTO employee (email, joined_date, first_name, last_name, salary, is_active, create_ts, department_id, manager_id)
 VALUES 
-('emp1@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW()),
-('emp2@example.com', '2024-04-07', 'Jane', 'Smith', 60000, 2, NOW()),
-('emp3@example.com', '2024-04-07', 'Michael', 'Johnson', 55000, 1, NOW()),
-('emp4@example.com', '2024-04-07', 'Emily', 'Brown', 52000, 2, NOW()),
-('emp5@example.com', '2024-04-07', 'David', 'Williams', 53000, 1, NOW()),
-('emp6@example.com', '2024-04-07', 'Sarah', 'Jones', 54000, 2, NOW()),
-('emp7@example.com', '2024-04-07', 'Christopher', 'Garcia', 58000, 1, NOW()),
-('emp8@example.com', '2024-04-07', 'Amanda', 'Martinez', 56000, 2, NOW()),
-('emp9@example.com', '2024-04-07', 'Matthew', 'Hernandez', 57000, 1, NOW()),
-('emp10@example.com', '2024-04-07', 'Ashley', 'Lopez', 59000, 2, NOW());
+    ('john.doe@example.com', '2024-04-01', 'John', 'Doe', 60000, true, NOW(), 1, null),
+    ('jane.smith@example.com', '2024-04-02', 'Jane', 'Smith', 55000, true, NOW(), 2, 1),
+    ('michael.johnson@example.com', '2024-04-03', 'Michael', 'Johnson', 70000, true, NOW(), 1, 1),
+    ('emily.brown@example.com', '2024-04-04', 'Emily', 'Brown', 62000, true, NOW(), 2, 2),
+    ('david.williams@example.com', '2024-04-05', 'David', 'Williams', 58000, true, NOW(), 3, 2),
+    ('sarah.jones@example.com', '2024-04-06', 'Sarah', 'Jones', 63000, true, NOW(), 3, 3),
+    ('matthew.davis@example.com', '2024-04-07', 'Matthew', 'Davis', 65000, true, NOW(), 1, 4),
+    ('jessica.miller@example.com', '2024-04-08', 'Jessica', 'Miller', 68000, true, NOW(), 2, 4),
+    ('daniel.wilson@example.com', '2024-04-09', 'Daniel', 'Wilson', 59000, true, NOW(), 3, 5),
+    ('elizabeth.taylor@example.com', '2024-04-10', 'Elizabeth', 'Taylor', 72000, true, NOW(), 1, 5),
+    ('christopher.anderson@example.com', '2024-04-11', 'Christopher', 'Anderson', 64000, true, NOW(), 2, 6),
+    ('ashley.martinez@example.com', '2024-04-12', 'Ashley', 'Martinez', 71000, true, NOW(), 3, 6),
+    ('joshua.hernandez@example.com', '2024-04-13', 'Joshua', 'Hernandez', 60000, true, NOW(), 1, 7),
+    ('amanda.lopez@example.com', '2024-04-14', 'Amanda', 'Lopez', 63000, true, NOW(), 2, 7),
+    ('andrew.gonzalez@example.com', '2024-04-15', 'Andrew', 'Gonzalez', 67000, true, NOW(), 3, 8),
+    ('megan.young@example.com', '2024-04-16', 'Megan', 'Young', 59000, true, NOW(), 1, 8),
+    ('ryan.king@example.com', '2024-04-17', 'Ryan', 'King', 65000, true, NOW(), 2, 9),
+    ('lauren.scott@example.com', '2024-04-18', 'Lauren', 'Scott', 69000, true, NOW(), 3, 9),
+    ('kevin.adams@example.com', '2024-04-19', 'Kevin', 'Adams', 60000, true, NOW(), 1, 10),
+    ('kevin@example.com', '2024-04-19', 'Kevin', null, 60000, true, NOW(), 1, 10),
+    ('kayu.adams@example.com', '2024-04-19', 'Kayu', null, 60000, true, NOW(), 1, 10),
+    ('nicole.cook@example.com', '2024-04-20', 'Nicole', 'Cook', 68000, true, NOW(), 2, 10),
+    ('nicole.cook1@example.com', '2024-04-20', 'nicole', 'cook', 68000, true, NOW(), 2, 10);
+
+
+
 
 -- Invalid Data
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
@@ -65,16 +68,4 @@ VALUES ('John@example.com', 'John', 'Doe', 50000, 1, NOW());
 
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES ('Kaul@example.com', '2024-04-07', 'Kaul', 'Doe', 0, 1, NOW());
-
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
-VALUES 
-('emp11@example.com', '2024-04-07', 'John', 'Doe', 59000, 1, NOW()),
-('emp12@example.com', '2024-04-07', 'Jane', 'Smith', 59000, 2, NOW()),
-('emp13@example.com', '2024-04-07', 'Michael', 'Johnson', 59000, 1, NOW()),
-('emp14@example.com', '2024-04-07', 'Emily', 'Brown', 59000, 2, NOW());
-
-
-
-
-
 

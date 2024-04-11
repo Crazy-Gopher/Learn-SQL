@@ -104,3 +104,13 @@ SELECT
         ELSE LAG(student) OVER(ORDER BY id)
     END AS student
 FROM Seat;
+
+
+16. PARTITION BY
+--returns a single value for each row
+
+SELECT FirstName, LastName, Gender, Salary,
+COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender 
+FROM EmployeeDemographics ED
+JOIN EmployeeSalary ES
+ON ED.EmployeeID = ES.EmployeeID

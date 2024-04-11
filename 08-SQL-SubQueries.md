@@ -25,7 +25,10 @@ Inner Queries
 4. Sub query in where
 
 
-ANY, ALL, EXISTS
+## ANY, ALL, EXISTS
+
+IF EXISTS
+IF NOT EXISTS
 
 Subqueries are queries that are nested inside another SQL query. They help us target specific rows to perform various operations in SQL. They are used to SELECT, UPDATE, INSERT and DELETE records in SQL. There are different types of SQL subquery, like Single-row subquery, multiple row subquery, multiple column subquery, correlated subquery, and nested subquery. Each type performs different roles, and their result is used depending on the user's requirement. 
 

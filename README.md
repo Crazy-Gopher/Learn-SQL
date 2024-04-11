@@ -56,3 +56,5 @@ CREATE DATABASE learnsql;
 \dt - list all the tables of current database
 \x - extended display on or off
 \q - quit
+
+\d table_name; - check the schema(structure) of the table
