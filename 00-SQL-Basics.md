@@ -8,7 +8,7 @@
 
 In PostgreSQL (psql), the execution order of SQL queries generally follows the same logical sequence as in standard SQL. However, it's important to note that the PostgreSQL query optimizer may optimize the query execution plan based on various factors such as indexes, statistics, and query complexity. Here's the typical sequence of operations in SQL query execution in PostgreSQL:
 
-1. FROM: The first step is to identify the tables or views from which data will be retrieved. This includes joining multiple tables if necessary.
+1. **FROM**: The first step is to identify the tables or views from which data will be retrieved. This includes joining multiple tables if necessary.
 
 2. JOIN: If there are multiple tables involved in the query, PostgreSQL performs any necessary joins based on the specified join conditions.
 
