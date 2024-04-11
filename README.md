@@ -40,6 +40,9 @@ Duplicate table (How to remove duplicate data)
 (Explain)Compile instead of executing if you just want to see if the sql is currect or not and you don't need to see the data
 Explain by json in each query 
 
+-- Incremental data
+-- new data will always be the latest data, like click data
+
 
 ## Setup PostgreSQL
 docker run -p 5432:5432 --name postgres_local -e POSTGRES_PASSWORD=postgres -d postgres 

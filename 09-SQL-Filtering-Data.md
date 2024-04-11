@@ -1,13 +1,50 @@
-WHERE
-AND
-OR
-NOT
-LIMIT
-IN, NOT IN
-BETWEEN
-LIKE, iLIKE - underscore(_), percentage(%)
-IS NULL, IS NOT NULL
+## WHERE 
+Add condition to filter the data.
 
+`SELECT * FROM employee WHERE salary = 50000;`
+
+
+## Operators
+1. Comparision operator (<, >, <=, >=, <>, !=, =)
+
+`SELECT * FROM employee WHERE salary >= 60000;`
+
+2. IN, NOT IN
+
+`SELECT * FROM employee WHERE salary IN (50000, 60000);`
+
+`SELECT * FROM employee WHERE salary NOT IN (50000, 60000);`
+
+3. IS NULL, IS NOT NULL
+
+`SELECT * FROM employee WHERE last_name IS NULL;`
+
+`SELECT * FROM employee WHERE last_name IS NOT NULL;`
+
+4. BETWEEN (both values are inclusive)
+
+`SELECT * FROM employee WHERE salary BETWEEN 50000 AND 60000;`
+
+5. LIKE, iLIKE - 
+Single Character - underscore(_)
+Zero or One or Multi Character - percentage(%)
+
+Startswith-
+
+`SELECT * FROM employee WHERE first_name LIKE 'ka%';`
+
+`SELECT * FROM employee WHERE first_name iLIKE 'ka%';`
+
+Endswith-
+`SELECT * FROM employee WHERE first_name iLIKE '%yu';`
+
+Contains-
+`SELECT * FROM employee WHERE first_name iLIKE '%y%';`
+
+6. Logical Operator (AND, OR, NOT)
+
+
+LIMIT
 
 5.	WHERE clause - select * from employee where emp_id='1001'
 or 

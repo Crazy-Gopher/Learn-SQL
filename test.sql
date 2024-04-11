@@ -32,6 +32,17 @@ VALUES ('John@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW());
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES ('Sarah1@example.com', '2024-04-07', 'Sarah', 'Doe', 50000, 1, NOW());
 
+INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
+VALUES ('KAPIL@example.com', '2024-04-07', 'Kapil', 50000, 1, NOW());
+INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
+VALUES ('Vishant@example.com', '2024-04-07', 'Vishant', 50000, 1, NOW());
+
+INSERT INTO employee (email, joined_date, first_name, salary, department_id,create_ts)
+VALUES ('kayu1@example.com', '2022-03-28', 'kayu', 50000, 1, NOW());
+INSERT INTO employee (email, joined_date, first_name, salary, department_id, create_ts)
+VALUES ('kayu2@example.com', '2022-03-28', 'Kayu', 50000, 1, NOW());
+
+
 INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES 
 ('emp1@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW()),

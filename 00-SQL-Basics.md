@@ -1,11 +1,11 @@
 # Structured Query Language(SQL)
-- case insensitive (upper lower both are same)
+- Case insensitive (upper lower both are same)
 - Query endswith semicolon;
-- string value should be in single quotes ('kapil')
-- column name should be double quotes ("kapil")
+- String value should be in single quotes ('kapil')
+- Column name should be double quotes ("kapil")
 
 
-## SQl clause Writing Order
+## SQL clause Writing Order
 In SQL, the order in which you write clauses in a query matters for readability and clarity. While SQL is flexible in terms of syntax, following a standardized order can make your queries easier to understand and maintain. Here's a common order in which you can write clauses in a SQL query:
 
 1. **SELECT**: Start by specifying the columns you want to retrieve from the database. This clause is almost always the first one in a query.
@@ -64,14 +64,16 @@ PostgreSQL's query optimizer may rearrange the order of execution or apply vario
 
 ## SQL Comments
 
-### Single Line Comment
+1. **Single Line Comment**
+
 ```
 SELECT 
     DISTINCT first_name, department_id -- single line comment
 FROM employee;
 ```
 
-### Multi line comment
+2. **Multi line comment**
+
 ```
 SELECT
     DISTINCT first_name, department_id
@@ -85,7 +87,7 @@ FROM employee;
 
 
 ## SELECT
-1. ALL Column*
+1. ALL Column
 
 `SELECT * FROM employee;`
 
@@ -99,7 +101,7 @@ FROM employee;
 
 `SELECT DISTINCT first_name, department_id FROM employee;`
 
-4. Select current_date, new_value
+4. Select current_date, Some value
 
 `SELECT 'kapil' || ' ' || 'Jain' AS fullname, 50000 as salary;`
 
@@ -113,6 +115,13 @@ FROM employee;
 --------------
  2024-04-11
 
+## Operations on column (Concatinate, alias)
+`SELECT  first_name || ' ' || last_name FROM employee;`
+
+`SELECT  first_name || ' ' || last_name AS Fullname FROM employee;`
+
+`SELECT  first_name || ' ' || last_name AS "Fullname" FROM employee;`
+
 `SELECT 'The employee id ' ||  id  ||' is of '||first_name||  ' whose salary was '|| salary employee_detail, salary FROM employee;`
 
 -------------------------------------------------------------+---------
@@ -121,22 +130,6 @@ FROM employee;
 | The employee id 1 is of John whose salary was 50000        |  50000 |
 -------------------------------------------------------------+---------
 
-## Operations on column (Concatinate, alias)
-SELECT  first_name || ' ' || last_name FROM employee;
-SELECT  first_name || ' ' || last_name AS Fullname FROM employee;
-SELECT  first_name || ' ' || last_name AS "Fullname" FROM employee;
+## Alias
 
-Alias - cmpgn.status as "CA_STATUS"
-from
-LIKE, IN, not IN, operator, between AND , OR, NOT, is null, is not null
-Group by
-Order by
-Aggrigate function Max, min, avg, count, sum
-Having
-Where
-
-
-
-
--- Incremental data
--- new data will always be the latest data, like click data
+cmpgn.status as "CA_STATUS"
