@@ -39,6 +39,6 @@ String - TRIM, RTRIM, LTRIM, REPLACE, SUBSTRING, LOWER, UPPER
 math
 datetime
 
-CAST, Convert
+Convert
 
 PARTITION BY

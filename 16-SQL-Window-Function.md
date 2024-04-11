@@ -1,6 +1,27 @@
+# Window Function
+NTILE
+partition by
 RANK
 DENSE_RANK
 ROW_NUMBER
+
+SUM, MAX, MIN, AVG, COUNT
+
+## Nth Highest salary Using DENSE_RANK
+SELECT * FROM(
+SELECT emp_name, salary, DENSE_RANK() 
+over(ORDER BY salary DESC) AS ranking FROM employee) AS k
+WHERE ranking=3;
+
+
+
+
+
+
+## LISTAGG
+SELECT student_id, LISTAGG(subject, ', ') WITHIN GROUP (ORDER BY subject) AS subject_list
+FROM students
+GROUP BY student_id;
 
 # RANK, DENSE_RANK, ROW_NUMBER
 SELECT salary,
@@ -57,7 +78,7 @@ FROM Employee;
  Sarah Jones        | emp6@example.com  | 2024-04-07  |  54000 |       374000
 ```
 
-# MAX() / MIN()
+# MAX() / MIN() OVER()
 ```
 project budget = 5,00,000
 SELECT 
@@ -105,6 +126,18 @@ SELECT
     END AS student
 FROM Seat;
 
+```
+WITH NumberCheck AS (
+    SELECT 
+        num,
+        LEAD(num, 1) OVER (ORDER BY id) AS next_num_1,
+        LEAD(num, 2) OVER (ORDER BY id) AS next_num_2
+    FROM logs
+)
+SELECT DISTINCT(num) as "ConsecutiveNums"
+FROM NumberCheck
+WHERE num = next_num_1 AND num = next_num_2;
+```
 
 16. PARTITION BY
 --returns a single value for each row
@@ -114,3 +147,20 @@ COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
 FROM EmployeeDemographics ED
 JOIN EmployeeSalary ES
 ON ED.EmployeeID = ES.EmployeeID
+
+## ROWS
+SELECT visited_on,amount,average_amount
+FROM
+(
+    SELECT visited_on,
+    SUM(amount) OVER (ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS amount,
+    ROUND(AVG(amount) OVER (ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS average_amount,
+    COUNT(*) OVER (ROWS BETWEEN UNBOUNDED PRECEDING and CURRENT ROW) AS cum_count
+    FROM
+        (SELECT visited_on, SUM(amount) AS amount
+        FROM Customer
+        GROUP BY visited_on
+        ORDER BY visited_on ASC)
+)
+-- Take from the 7th row onwards
+WHERE cum_count > 6.0

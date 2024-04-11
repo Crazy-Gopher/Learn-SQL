@@ -1,55 +1,68 @@
-PostgreSQL COALESCE function syntax
-The syntax of the COALESCE function is as follows:
-1	COALESCE (argument_1, argument_2, …);
-The COALESCE function accepts unlimited number of arguments. It returns the first argument that is not null. If all arguments are null, the COALESCE function will return null.
-The COALESCE function evaluates arguments from left to right until it finds the first non-null argument. All the remaining arguments from the first non-null argument are not evaluated.
-The COALESCE function provides the same functionality as NVL or IFNULL function provided by SQL-standard. MySQL has IFNULL function, while Oracle provides NVL function.
+## COALESCE
 
+## NULLIF
 
-CASE
-COALESCE
-NULLIF
-NVL
-GREATEST
-CAST
-ABS
+## NVL
+
+## Aggregate Functions
 SUM, MAX, MIN, AVG, COUNT
-TO_DATE('2023-06-20', 'YYYY-MM-DD')
-TO_CHAR
 
 
-ROUND
-CEIL
 
+# Date and datetime function
+
+## Convert
+-- CONVERT(data_type(length), expression, style)
+SELECT CONVERT(date,'2017-08-25 00:00:00.000')
+
+## TO_CHAR
+`SELECT TO_CHAR(NOW(), 'YYYY-MM-DD');`
+
+## TO_DATE
+`SELECT TO_DATE('2022-04-11', 'YYYY-MM-DD');`
+
+## CAST
+-- CAST(expression AS datatype(length))
+
+`SELECT CAST('100.01' AS numeric);`
+
+`SELECT CAST('2017-08-25 00:00:00.000' AS date)`
+
+
+## EXTRACT
+EXTRACT(YEAR FROM order_date)
+
+
+## DATEADD
 event_date > current_date - interval '30' day
-NOW()
 SELECT DATEADD(day, 3, '2024-04-11');
-REPLACE
 
-SELECT REPLACE(description, 'blue', 'green') AS updated_description
-FROM products;
+## NOW
+NOW()
 
 
-SELECT student_id, LISTAGG(subject, ', ') WITHIN GROUP (ORDER BY subject) AS subject_list
-FROM students
-GROUP BY student_id;
 
-# Built in functions
+
 
 ## String - TRIM, RTRIM, LTRIM, REPLACE, SUBSTRING, LOWER, UPPER
 
--- Remove space
+## TRIM, RTRIM, LTRIM
+
 Select EmployeeID, TRIM(EmployeeID) AS IDTRIM
 FROM EmployeeErrors 
 Select EmployeeID, RTRIM(EmployeeID) as IDRTRIM
 FROM EmployeeErrors 
 Select EmployeeID, LTRIM(EmployeeID) as IDLTRIM
 FROM EmployeeErrors 
--- Replace
+
+## Replace
+SELECT REPLACE(description, 'blue', 'green') AS updated_description
+FROM products;
 Select LastName, REPLACE(LastName, '- Fired', '') as
 LastNameFixed
 FROM EmployeeErrors
--- Substring
+
+## Substring
 Select Substring(err.FirstName,1,3),
 Substring(dem.FirstName,1,3), Substring(err.LastName,1,3),
 Substring(dem.LastName,1,3)
@@ -59,7 +72,8 @@ JOIN EmployeeDemographics dem
 Substring(dem.FirstName,1,3)
  and Substring(err.LastName,1,3) =
 Substring(dem.LastName,1,3)
--- UPPER and LOWER CASE
+
+## UPPER and LOWER CASE
 Select firstname, LOWER(firstname)
 from EmployeeErrors
 Select Firstname, UPPER(FirstName)
@@ -67,29 +81,11 @@ from EmployeeErrors"
 
 
 ## math
-## datetime
+## GREATEST
 
-## CAST, Convert
--- CAST(expression AS datatype(length))
-SELECT CAST('2017-08-25 00:00:00.000' AS date)
+## ABS
 
--- CONVERT(data_type(length), expression, style)
-SELECT CONVERT(date,'2017-08-25 00:00:00.000')
+## CEIL
 
-# Window Function
-ROW_NUMBER, RANK, DENSE_RANK, NTILE
-partition
-
-## Nth Highest salary https://www.youtube.com/watch?v=fh4yBn0oTaM&ab_channel=GateSmashers
-SELECT * 
-FROM Employee Emp1
-WHERE (N-1) = ( 
-SELECT COUNT(DISTINCT(Emp2.Salary))
-FROM Employee Emp2
-WHERE Emp2.Salary > Emp1.Salary)
-
-###  Using DENSE_RANK
-SELECT * FROM(
-SELECT emp_name, salary, DENSE_RANK() 
-over(ORDER BY salary DESC) AS ranking FROM employee) AS k
-WHERE ranking=3;
+## ROUND 
+- round(running_sum*1.0/7,2)

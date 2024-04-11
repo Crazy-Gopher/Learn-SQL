@@ -61,3 +61,32 @@ FROM
 GROUP BY
     stock_name;
 ```
+
+```
+WITH Acts AS (
+    SELECT
+        account_id,
+        CASE
+            WHEN income < 20000 THEN 'Low Salary'
+            WHEN income between 20000 AND 50000 THEN 'Average Salary'
+            ELSE 'High Salary'
+        END AS income
+    FROM Accounts
+),
+
+Categories AS(
+    SELECT 'Low Salary' AS category
+    UNION
+    SELECT 'Average Salary'
+    UNION
+    SELECT 'High Salary'
+)
+
+SELECT
+    Categories.category,
+    Coalesce(COUNT(acts.account_id),0) AS accounts_count
+FROM Categories
+LEFT JOIN Acts
+ON Categories.category = Acts.income
+GROUP BY Categories.category;
+```

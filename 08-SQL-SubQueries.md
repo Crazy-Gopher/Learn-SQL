@@ -62,3 +62,13 @@ AND e.salary = mx.max_sal
 INNER JOIN department dpt
 ON e.department_id = dpt.id;
 ```
+
+```
+## Nth Highest salary https://www.youtube.com/watch?v=fh4yBn0oTaM&ab_channel=GateSmashers
+SELECT * 
+FROM Employee Emp1
+WHERE (N-1) = ( 
+SELECT COUNT(DISTINCT(Emp2.Salary))
+FROM Employee Emp2
+WHERE Emp2.Salary > Emp1.Salary)
+```

@@ -60,3 +60,4 @@ CREATE DATABASE learnsql;
 \q - quit
 
 \d table_name; - check the schema(structure) of the table
+

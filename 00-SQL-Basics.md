@@ -98,3 +98,14 @@ salary + 3000 AS NewSalary
 123
 true, t
 null
+
+
+## Type Cast operator And CAST()
+`value_or_expression::datatype`
+
+`SELECT '100.01'::numeric;`
+
+`SELECT CAST('100.01' AS numeric);`
+
+Both the `::` operator and the CAST function achieve the same result: converting a value to the specified data type.
+date
