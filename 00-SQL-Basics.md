@@ -133,3 +133,5 @@ FROM employee;
 ## Alias
 
 cmpgn.status as "CA_STATUS"
+
+## LIMIT/OFFSET
