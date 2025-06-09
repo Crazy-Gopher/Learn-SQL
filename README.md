@@ -1,7 +1,14 @@
 # Types of Databases
 1. SQL
-2. Nosql (all database types)
+2. No Sql (all database types)
 understanding popular databases like Mysql, Mongodb and Cassandra.
+
+Type of No SQL database 
+1. Columner
+2. Key-value
+3. Document db
+4. graph
+
 
 # Storage types: 
 (Block Storage, File Storage, Object Storage (S3) , RAID)
