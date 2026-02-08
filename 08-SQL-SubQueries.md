@@ -1,13 +1,13 @@
-Corelated and Non-Corelated Sub Quries
-
+## Corelated and Non-Corelated Sub Quries
 1. Single row subquery(Single column), 
 2. Multiple row subquery(Single column), 
 3. Multiple column subquery(Single or Multiple row), 
 4. Corelated sub queries
 5. nested subquery. 
 
+---
 
-Inline View/ Inline Query
+## Inline View / Inline Query
 ```
 SELECT emp.first_name, emp.last_name
 FROM (
@@ -16,21 +16,22 @@ FROM (
     WHERE joined_date > '2024-04-01'
 ) AS emp;
 ```
-Inner Queries
 
+---
 
+## Inner Queries
 1. Subquery in select
 2. Subquery with partition by
 3. Subquery in from
 4. Sub query in where
 
+---
 
 ## ANY, ALL, EXISTS
 
 IF EXISTS
 IF NOT EXISTS
-Create table If Not Exists Employee (id int, salary int)
-Drop TABLE IF EXISTS Employee
+
 
 Subqueries are queries that are nested inside another SQL query. They help us target specific rows to perform various operations in SQL. They are used to SELECT, UPDATE, INSERT and DELETE records in SQL. There are different types of SQL subquery, like Single-row subquery, multiple row subquery, multiple column subquery, correlated subquery, and nested subquery. Each type performs different roles, and their result is used depending on the user's requirement. 
 
