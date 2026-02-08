@@ -1,0 +1,84 @@
+## WHERE 
+Add condition to filter the data.
+
+```
+SELECT
+	*
+FROM
+	EMPLOYEETRACKER.EMPLOYEE
+WHERE
+	SALARY = 50000;
+```
+
+WHERE 1 = 1 ??
+
+## Operators
+1. Comparision operator (<, >, <=, >=, <>, !=, =), NOT (<, >, <=, >=, <>, !=, =)
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE salary >= 60000;`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE NOT salary >= 60000;`
+
+2. IN, NOT IN
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE salary IN (50000, 60000);`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE salary NOT IN (50000, 60000);`
+
+3. IS NULL, IS NOT NULL
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE last_name IS NULL;`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE last_name IS NOT NULL;`
+
+4. BETWEEN, NOT BETWEEN (both values are inclusive) value1 <= col AND col <= value2
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE salary BETWEEN 50000 AND 60000;`
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE salary NOT BETWEEN 50000 AND 55000;`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE 50000 <= salary AND salary <= 60000;`
+
+5. LIKE, iLIKE, NOT LIKE, iLIKE - 
+Single Character - underscore(_)
+Zero or One or Multi Character - percentage(%)
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name NOT LIKE 'ka%';`
+Startswith-
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name LIKE 'ka%';`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name iLIKE 'ka%';`
+
+Endswith-
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name iLIKE '%yu';`
+
+Contains-
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name iLIKE '%y%';`
+
+6. Logical Operator (AND, OR, NOT)
+When you have multiple contions to add.
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE NOT (department_id = 1);`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE department_id = 1 AND salary > 50000;`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name = 'John' OR salary > 60000;`
+
+`SELECT * FROM EMPLOYEETRACKER.EMPLOYEE WHERE first_name = 'John' AND (salary > 60000 OR email LIKE 'em%');`
+
+7. Filter Multiple fileds
+```
+SELECT
+	*
+FROM
+	EMPLOYEETRACKER.EMPLOYEE
+WHERE
+	(FIRST_NAME, LAST_NAME, SALARY) IN (
+		SELECT
+			FIRST_NAME,
+			LAST_NAME,
+			SALARY
+		FROM
+			EMPLOYEETRACKER.EMPLOYEE
+	);
+```

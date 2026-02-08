@@ -1,5 +1,5 @@
 ## Constraints – 
-1.	Check -
+1.	Check - To add a check condition
 2.	Not Null –   doj date not null
 3.	Primary Key - emp_id number(5)primary key
 4.	Unique Key - email varchar(30) unique
