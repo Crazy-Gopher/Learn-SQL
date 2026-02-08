@@ -57,11 +57,7 @@ OLAP and OLTP
 docker run --name pg -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres_local -p 5432:5432  -v pgdata:/var/lib/postgresql/data -d postgres:16
 
 
-docker run --name pgadmin \
-  -p 5050:80 \
-  -e PGADMIN_DEFAULT_EMAIL=admin@example.com \
-  -e PGADMIN_DEFAULT_PASSWORD=admin \
-  -d dpage/pgadmin4
+docker run --name pgadmin -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=admin@example.com -e PGADMIN_DEFAULT_PASSWORD=admin -d dpage/pgadmin4
 
 http://localhost:5050 (Login with username - admin@example.com, password - admin)
 
