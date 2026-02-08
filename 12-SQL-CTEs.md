@@ -1,5 +1,5 @@
 # Common table expression CTE 
-CTE stands for Common Table Expression. It's a temporary named result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. CTEs were introduced in SQL with the SQL:1999 standard and are supported by many relational database management systems (RDBMS) including PostgreSQL, SQL Server, MySQL, and Oracle.
+CTE stands for Common Table Expression. It's a temporary named result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. CTEs were introduced in SQL with the SQL:1999 standard and are supported by many relational database management systems (RDBMS) including Post-greSQL, SQL Server, MySQL, and Oracle.
 
 When do we use CTEs?
 CTEs are particularly useful in the following scenarios:

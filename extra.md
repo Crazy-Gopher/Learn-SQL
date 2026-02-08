@@ -25,7 +25,7 @@ Great question! Converting **rows to columns** and **columns to rows** is done u
 
 ---
 
-### ✅ SQL (in PostgreSQL, MySQL 8+, SQL Server):
+### ✅ SQL (in Post-greSQL, MySQL 8+, SQL Server):
 
 ```sql
 SELECT
@@ -38,7 +38,7 @@ FROM sales
 GROUP BY product;
 ```
 
-> 🟢 Works in most SQL dialects (MySQL, Postgres, SQL Server, etc.).
+> 🟢 Works in most SQL dialects (MySQL, Post-gres, SQL Server, etc.).
 
 ---
 
