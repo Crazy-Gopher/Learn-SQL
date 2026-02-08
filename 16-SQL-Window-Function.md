@@ -24,7 +24,10 @@ FROM (
 ) ranked
 WHERE rank <= 3
 
-
+select 
+    DENSE_RANK() OVER (PARTITION BY first_name, joined_date, salary ORDER BY salary DESC) AS denserank,
+    emp.*
+FROM employee emp;
 
 
 ## LISTAGG
