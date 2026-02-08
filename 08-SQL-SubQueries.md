@@ -28,48 +28,67 @@ FROM (
 ---
 
 ## ANY, ALL, EXISTS
-
 IF EXISTS
 IF NOT EXISTS
 
-
-Subqueries are queries that are nested inside another SQL query. They help us target specific rows to perform various operations in SQL. They are used to SELECT, UPDATE, INSERT and DELETE records in SQL. There are different types of SQL subquery, like Single-row subquery, multiple row subquery, multiple column subquery, correlated subquery, and nested subquery. Each type performs different roles, and their result is used depending on the user's requirement. 
-
-
-Second highest salary -SELECT MAX(Salary) FROM Employees
-WHERE Salary NOT IN (SELECT MAX(Salary) FROM Employees )
 
 ## SQL Sub Queries
 https://www.scaler.com/topics/sql/types-of-subqueries-in-sql/Single-row 
 https://www.geeksforgeeks.org/difference-between-nested-subquery-correlated-subquery-and-join-operation/?ref=rp
 https://www.geeksforgeeks.org/sql-correlated-subqueries/
 
+
+
+---
+
+## 2nd Highest Salary
 ```
--- Highest Salary of Each Department, Employee Name, Department Name
-Select 
-    e.first_name || ' ' || e.last_name AS "Employee Name",
-    e.salary,
-    dpt.department_name
-FROM employee e 
-INNER JOIN (
-    SELECT 
-        e.department_id,
-        MAX(salary) AS "max_sal"
-    FROM employee e
-    GROUP BY e.department_id
-) AS max_salaries mx
-ON e.department_id = max_salaries.department_id
-AND e.salary = mx.max_sal
-INNER JOIN department dpt
-ON e.department_id = dpt.id;
+SELECT
+	MAX(SALARY)
+FROM
+	EMPLOYEETRACKER.EMPLOYEE
+WHERE
+	SALARY NOT IN ( SELECT MAX(SALARY) FROM EMPLOYEETRACKER.EMPLOYEE)
 ```
 
+---
+
+## Nth Highest salary 
+https://www.youtube.com/watch?v=fh4yBn0oTaM&ab_channel=GateSmashers
 ```
-## Nth Highest salary https://www.youtube.com/watch?v=fh4yBn0oTaM&ab_channel=GateSmashers
-SELECT * 
-FROM Employee Emp1
-WHERE (N-1) = ( 
-SELECT COUNT(DISTINCT(Emp2.Salary))
-FROM Employee Emp2
-WHERE Emp2.Salary > Emp1.Salary)
+SELECT
+	*
+FROM
+	EMPLOYEETRACKER.EMPLOYEE EMP1
+WHERE
+	(N - 1) = (
+		SELECT
+			COUNT(DISTINCT (EMP2.SALARY))
+		FROM
+			EMPLOYEETRACKER.EMPLOYEE EMP2
+		WHERE
+			EMP2.SALARY > EMP1.SALARY
+	)
+```
+
+---
+
+## ## Highest Salary of Each Department, Employee Name, Department Name
+```
+SELECT
+    EMP.FIRST_NAME || ' ' || EMP.LAST_NAME AS "Employee Name",
+    EMP.SALARY,
+    DPT.DEPARTMENT_NAME
+FROM EMPLOYEETRACKER.EMPLOYEE EMP
+INNER JOIN (
+        SELECT
+            EMP.department_id,
+            MAX(EMP.SALARY) AS max_sal
+        FROM EMPLOYEETRACKER.EMPLOYEE EMP
+        GROUP BY EMP.department_id
+) AS MX 
+    ON EMP.department_id = MX.department_id
+    AND EMP.salary = MX.max_sal
+INNER JOIN EMPLOYEETRACKER.DEPARTMENT DPT 
+    ON EMP.department_id = DPT.ID;
 ```
