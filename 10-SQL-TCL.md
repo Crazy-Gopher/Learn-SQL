@@ -1,13 +1,11 @@
 # TCL (deals with the transactions happening in the DB)
-
-COMMIT
-ROLLBACK
-SAVEPOINT
-
+* COMMIT
+* ROLLBACK
+* SAVEPOINT
 
 
-
-
+## Syntax
+```
 BEGIN
 statement 1
 statement 1
@@ -17,3 +15,4 @@ statement 1
 statement n
 END
 COMMIT
+```
