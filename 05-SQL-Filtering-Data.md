@@ -58,3 +58,20 @@ When you have multiple contions to add.
 `SELECT * FROM employee WHERE first_name = 'John' OR salary > 60000;`
 
 `SELECT * FROM employee WHERE first_name = 'John' AND (salary > 60000 OR email LIKE 'em%');`
+
+7. Filter Multiple fileds
+```
+SELECT
+	*
+FROM
+	EMPLOYEETRACKER.EMPLOYEE
+WHERE
+	(FIRST_NAME, LAST_NAME, SALARY) IN (
+		SELECT
+			FIRST_NAME,
+			LAST_NAME,
+			SALARY
+		FROM
+			EMPLOYEETRACKER.EMPLOYEE
+	);
+```

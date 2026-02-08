@@ -89,7 +89,7 @@ TRUNCATE TABLE employeetracker.department
 ALTER TABLE employeetracker.employee
 DROP COLUMN mobile;
 ```
-
+s
 ---
 
 ### DROP TABLE
