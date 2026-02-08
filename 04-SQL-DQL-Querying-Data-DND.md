@@ -1,6 +1,6 @@
 # DQL (retrieve data from the DB using SQL queries)
 
-# SELECT ALL Column
+## SELECT ALL Column
 
 ```
 SELECT * FROM employeetracker.employee;
