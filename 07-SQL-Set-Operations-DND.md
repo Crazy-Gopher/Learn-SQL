@@ -4,12 +4,9 @@
 3. Intersect
 4. Except
 
-
-Sure! Here’s a clear explanation with examples for the **4 main set operations in SQL**: `UNION`, `UNION ALL`, `INTERSECT`, and `EXCEPT`.
-
 ---
 
-# 🔥 SQL Set Operations Explained with Examples
+## 🔥 SQL Set Operations Explained with Examples
 
 Imagine two tables with a simple structure:
 
@@ -32,7 +29,6 @@ id | name
 ---
 
 ## 1️⃣ UNION
-
 * Combines results from two queries.
 * Removes **duplicate rows**.
 * Result contains **unique rows** present in either A or B.
@@ -57,7 +53,6 @@ SELECT name FROM B;
 ---
 
 ## 2️⃣ UNION ALL
-
 * Combines results from two queries.
 * **Includes duplicates**.
 * Result contains **all rows from A and B**.
@@ -69,7 +64,6 @@ SELECT name FROM B;
 ```
 
 ### Result:
-
 | name  |
 | ----- |
 | Alice |
@@ -84,7 +78,6 @@ SELECT name FROM B;
 ---
 
 ## 3️⃣ INTERSECT
-
 * Returns only rows that appear in **both** queries.
 * Intersection of A and B.
 
@@ -126,12 +119,5 @@ SELECT name FROM B;
 
 ---
 
-# ⚠️ Notes:
-
-* Some databases use `MINUS` instead of `EXCEPT` (Oracle uses `MINUS`).
 * Columns and their data types must match in the set operations.
 * Ordering can be added after the full operation (not inside each SELECT).
-
----
-
-Would you like me to explain these operations with more complex examples or with specific database syntax?
