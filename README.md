@@ -54,10 +54,28 @@ OLAP and OLTP
 
 
 ## Setup PostgreSQL
-docker run -p 5432:5432 --name postgres_local -e POSTGRES_PASSWORD=postgres -d postgres 
-docker exec -it postgres_local bash 
-psql "host=127.0.0.1 port=5432 user=postgres dbname=postgres" 
-psql -h 127.0.0.1 -p 5432 -d postgres -U postgres
+docker run --name pg -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres_local -p 5432:5432  -v pgdata:/var/lib/postgresql/data -d postgres:16
+
+
+docker run --name pgadmin \
+  -p 5050:80 \
+  -e PGADMIN_DEFAULT_EMAIL=admin@example.com \
+  -e PGADMIN_DEFAULT_PASSWORD=admin \
+  -d dpage/pgadmin4
+
+http://localhost:5050 (Login with username - admin@example.com, password - admin)
+
+## Add server
+Host: host.docker.internal
+User: postgres
+Password: postgres
+
+
+docker exec -it pg bash 
+
+psql "host=127.0.0.1 port=5432 user=postgres dbname=postgres_local" 
+psql -h 127.0.0.1 -p 5432 -d postgres_local -U postgres
+
 
 CREATE DATABASE learnsql;
 \l - list databases
@@ -67,4 +85,3 @@ CREATE DATABASE learnsql;
 \q - quit
 
 \d table_name; - check the schema(structure) of the table
-
