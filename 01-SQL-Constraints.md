@@ -11,3 +11,13 @@ Composite Key –
 
  PRIMARY KEY(userid, sid, event_date, s_kwcid)
  USING btree (userid, event_date, s_kwcid);
+
+
+Composite Key – 
+                Create table emp(
+                 Emp_id varchar(10),
+                 D_O_J date constraint doj not null,
+                 Email varchar(30),
+                 Dep_id  varchar(10),
+                 Constraint emp_ck primary key(emp_id,email)
+                 )

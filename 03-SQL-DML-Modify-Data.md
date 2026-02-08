@@ -4,21 +4,6 @@ DELETE
 UPDATE
 
 
-
-## Update
-update customer set phonenumber='1234545346' where
-customerid=1
-update customer set phonenumber='45554654' where
-customerid=2
-## Update –
-       1.    update    manager     set phn_no='9876543210'    where emp_id='1005'
-       2.    update manager    set phn_no= (select phn_no from employee where sal=30000)
-         where emp_id=(select emp_id from employee where sal=30000)
-
-
-
-               
-
 ## Insert
 1.	insert into employee(emp_id , emp_name,  sal , phn_no ,doj) values('1001','kapil',30000,'8871337193','29-nov-1993')
 2.	insert into employee  values('1001','kapil',30000,'8871337193','29-nov-1993')
@@ -38,6 +23,25 @@ INSERT INTO employeetracker.department (department_name) VALUES ('HR'), ('ADMIN'
 1.	insert into employee(emp_id , emp_name,  sal , phn_no ,doj) values('1001','kapil',30000,'8871337193','29-nov-1993')
 2.	insert into employee  values('1001','kapil',30000,'8871337193','29-nov-1993')
 3.	insert into manger 
+
+
+
+
+## Update
+update customer set phonenumber='1234545346' where
+customerid=1
+update customer set phonenumber='45554654' where
+customerid=2
+## Update –
+       1.    update    manager     set phn_no='9876543210'    where emp_id='1005'
+       2.    update manager    set phn_no= (select phn_no from employee where sal=30000)
+         where emp_id=(select emp_id from employee where sal=30000)
+
+
+
+               
+
+
 
 
 # SELECT INTO
