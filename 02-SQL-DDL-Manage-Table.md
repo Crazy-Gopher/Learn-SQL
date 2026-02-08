@@ -13,6 +13,7 @@ RENAME (COLUMN, TABLE)
 Backup - create table emp as select * from employee 
 
 ## CREATE
+CREATE TABLE IF NOT EXISTS
 Create - 
 create table employee(emp_id varchar(10), emp_name varchar(10),  sal number(10), phn_no varchar(10),doj date);
 CREATE TABLE
@@ -45,6 +46,11 @@ Backup - create table emp as select * from employee
 
 
 ## DROP
+```
+DROP TABLE employeetracker.department
+DROP TABLE employeetracker.employee 
+```
+
 Drop – drop table emp1 (all row + schema)
 
 Dropping Constraints – 
@@ -54,6 +60,9 @@ Adding Constraints –
 ADD COLUMN
 
 ## TRUNCATE
+```
+TRUNCATE TABLE employeetracker.department
+```
 
 ## RENAME
 

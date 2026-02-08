@@ -1,11 +1,13 @@
-CREATE DATABASE employeetracker;
+CREATE DATABASE employeetracker_db;
 
-CREATE TABLE IF NOT EXISTS department(
+CREATE SCHEMA IF NOT EXISTS employeetracker;
+
+CREATE TABLE IF NOT EXISTS employeetracker.department(
     id SERIAL PRIMARY KEY,
-    department_name VARCHAR(50)
+    department_name VARCHAR(50) UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS employee(
+CREATE TABLE IF NOT EXISTS employeetracker.employee (
     id SERIAL PRIMARY KEY,
     email VARCHAR(100) UNIQUE NOT NULL,
     joined_date DATE NOT NULL,
@@ -18,19 +20,18 @@ CREATE TABLE IF NOT EXISTS employee(
     manager_id INTEGER,
     CONSTRAINT fk_dpt
     FOREIGN KEY(department_id) 
-    REFERENCES department(id)
+    REFERENCES employeetracker.department(id)
 );
 
 -- Valid
-INSERT INTO department (department_name) VALUES('IT');
-INSERT INTO department (department_name) VALUES('HR'),('ADMIN'),('ES'),('SECURITY');
-
+INSERT INTO employeetracker.department (department_name) VALUES ('IT');
+INSERT INTO employeetracker.department (department_name) VALUES ('HR'), ('ADMIN'), ('ES'), ('SECURITY');
 
 -- Valid
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, is_active, create_ts, department_id, manager_id)
-VALUES ('KapilJain@example.com', '2024-04-01', 'Kapil', 'Jain', 50000, true, NOW(), 3, null);
+INSERT INTO employeetracker.employee (email, joined_date, first_name, last_name, salary, create_ts, department_id, manager_id)
+VALUES ('KapilJain@example.com', '2024-04-01', 'Kapil', 'Jain', 50000, NOW(), 3, null);
 
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, is_active, create_ts, department_id, manager_id)
+INSERT INTO employeetracker.employee (email, joined_date, first_name, last_name, salary, is_active, create_ts, department_id, manager_id)
 VALUES 
     ('john.doe@example.com', '2024-04-01', 'John', 'Doe', 60000, true, NOW(), 1, null),
     ('jane.smith@example.com', '2024-04-02', 'Jane', 'Smith', 55000, true, NOW(), 2, 1),
@@ -56,16 +57,20 @@ VALUES
     ('nicole.cook@example.com', '2024-04-20', 'Nicole', 'Cook', 68000, true, NOW(), 2, 10),
     ('nicole.cook1@example.com', '2024-04-20', 'nicole', 'cook', 68000, true, NOW(), 2, 10);
 
-
-
-
--- Invalid Data
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
+INSERT INTO employeetracker.employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES ('John@example.com', '2024-04-07', 'John', 'Doe', 50000, 1, NOW());
 
-INSERT INTO employee (email, first_name, last_name, salary, department_id, create_ts)
+
+
+-- Valid - Foreign Key can be null
+INSERT INTO employeetracker.employee (email, joined_date, first_name, last_name, salary, create_ts)
+VALUES ('Johnd@example.com', '2024-04-07', 'John', 'Doe', 50000, NOW());
+
+-- Invalid Data - not-null constraint on joined_date
+INSERT INTO employeetracker.employee (email, first_name, last_name, salary, department_id, create_ts)
 VALUES ('John@example.com', 'John', 'Doe', 50000, 1, NOW());
 
-INSERT INTO employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
+-- Invalid Data - Salary cannot be zero or negative
+INSERT INTO employeetracker.employee (email, joined_date, first_name, last_name, salary, department_id, create_ts)
 VALUES ('Kaul@example.com', '2024-04-07', 'Kaul', 'Doe', 0, 1, NOW());
 

@@ -86,3 +86,17 @@ CREATE DATABASE learnsql;
 \q - quit
 
 \d table_name; - check the schema(structure) of the table
+
+
+CREATE SCHEMA ecommerce_db;
+
+# Docker-Compose
+
+docker-compose up -d
+docker-compose down
+
+### Add server
+Name: postgres_local
+Host: postgres
+User: postgres
+Password: postgres

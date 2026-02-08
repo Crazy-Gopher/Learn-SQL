@@ -30,6 +30,11 @@ insert into customer values
 (300,'Albert','John',default,'dfdsfsdf',default
 
 ## Insert Into-
+```
+INSERT INTO employeetracker.department (department_name) VALUES ('IT');
+INSERT INTO employeetracker.department (department_name) VALUES ('HR'), ('ADMIN'), ('ES'), ('SECURITY');
+```
+
 1.	insert into employee(emp_id , emp_name,  sal , phn_no ,doj) values('1001','kapil',30000,'8871337193','29-nov-1993')
 2.	insert into employee  values('1001','kapil',30000,'8871337193','29-nov-1993')
 3.	insert into manger 
@@ -52,7 +57,10 @@ SELECT wh.event_date, kph.portfolio_id, sum(wh.cost)FROM day_click_campaign_a
 
 ## Delete 
 1. for only specific row
-delete from emp1 where sal=32000 
+```
+DELETE FROM employeetracker.department WHERE id = 1
+DELETE FROM employeetracker.department WHERE id IN (1, 2)
+```
 
 2. for all row
 delete from emp1 
